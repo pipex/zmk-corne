@@ -60,7 +60,7 @@
    &none  &kp Q        &kp W       &kp E       &kp R       &kp T     &kp Y &kp U       &kp I       &kp O       &kp P           &none
    &none  &hml LSHFT A &hml LCTL S &hml LALT D &hml LGUI F &kp G     &kp H &hmr LGUI J &hmr LALT K &hmr RCTL L &hmr RSHFT SEMI &none
    &none  &kp Z        &kp X       &kp C       &kp V       &kp B     &kp N &kp M       &kp COMMA   &kp DOT     &kp FSLH        &none
-                                   &kp ESC &kp TAB &lt NUM SPACE     &lt SYM RET &kp BSPC &kp RET
+                               &kp ESC &lt NAV TAB &lt NUM SPACE     &lt SYM RET &kp BSPC &kp RET
                         >;
                 };
                 number_layer {
@@ -84,14 +84,30 @@
 // -------------------------------------------------------------------------------
 // |      |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  |      |
 // |      |  ~  |     |     |     |     |   |     |  -  |  =  |  [  |  ]  |      |
-// |      |     |     |     |     |     |   |     |  |  |  "  |  '  |  \  |      |
+// |      |  ``  |     |     |     |     |   |     |  |  |  "  |  '  |  \  |      |
 //                    | GUI |     | SPC |   | RET | BKSP| RET |
                         bindings = <
    &none &kp EXCL         &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp ASTRK &kp LPAR &kp RPAR &none
    &none &hml LSHFT TILDE &none  &none    &none    &none       &none     &kp MINUS &kp EQUAL &kp LBRC &kp RBRC &none
-   &none &none            &none  &none    &none    &none       &none     &kp PIPE  &kp DQT   &kp SQT  &kp BSLH &none
-                                 &trans &trans &kp SPACE       &trans &trans &trans
+   &none &kp GRAVE        &none  &none    &none    &none       &none     &kp PIPE  &kp DQT   &kp SQT  &kp BSLH &none
+                                 &trans &trans &sk LSHFT       &trans &trans &trans
                         >;
                 };
+
+                nav_layer {
+                        label = "Nav";
+// -------------------------------------------------------------------------------
+// |      |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  |      |
+// |      |  `  |     |     |     |     |   |     |Left |Down |  Up | Rght|      |
+// |      |     |     |     |     |     |   |     |Home |PgDn | PgUp| End |      |
+//                    | GUI |     | SPC |   | RET | BKSP| RET |
+                        bindings = <
+   &none &kp N1    &kp N2    &kp N3   &kp N4   &kp N5      &kp N6 &kp N7    &kp N8    &kp N9    &kp N0    &none
+   &none &kp LSHFT &kp LCTL  &kp LALT &kp LGUI &none       &none  &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &none
+   &none &none     &none     &none    &none    &none       &none  &kp HOME  &kp PG_DN &kp PG_UP &kp END   &none
+                                &trans &trans &trans       &trans &trans &trans
+                        >;
+                };
+
         };
 };
