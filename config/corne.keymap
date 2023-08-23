@@ -12,7 +12,10 @@
 #define LOWER   1
 #define RAISE   2
 
-behaviors {
+
+
+/ {
+      behaviors {
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS";
@@ -23,10 +26,10 @@ behaviors {
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
-};
+      };
 
-/ {
-        keymap {
+
+      keymap {
                 compatible = "zmk,keymap";
 
                 default_layer {
