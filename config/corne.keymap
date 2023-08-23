@@ -13,6 +13,8 @@
 #define NUM 1
 #define SYM 2
 #define NAV 3
+#define FUN 4
+#define MED 5
 
 
 // &lt {
@@ -84,13 +86,13 @@
 // -------------------------------------------------------------------------------
 // |      |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  |      |
 // |      |  ~  |     |     |     |     |   |     |  -  |  =  |  [  |  ]  |      |
-// |      |  ``  |     |     |     |     |   |     |  |  |  "  |  '  |  \  |      |
-//                    | GUI |     | SPC |   | RET | BKSP| RET |
+// |      |  `` |     |     |     |     |   |     |  |  |  "  |  '  |  \  |      |
+//                    | ESC | TAB | SPC |   | RET | BKSP| RET |
                         bindings = <
-   &none &kp EXCL         &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp ASTRK &kp LPAR &kp RPAR &none
-   &none &hml LSHFT TILDE &none  &none    &none    &none       &none     &kp MINUS &kp EQUAL &kp LBRC &kp RBRC &none
-   &none &kp GRAVE        &none  &none    &none    &none       &none     &kp PIPE  &kp DQT   &kp SQT  &kp BSLH &none
-                                 &trans &trans &sk LSHFT       &trans &trans &trans
+   &none &kp EXCL  &kp AT    &kp HASH &kp DLLR &kp PRCNT    &kp CARET &kp AMPS  &kp ASTRK &kp LPAR &kp RPAR &none
+   &none &kp GRAVE &kp TILDE &none    &none    &none        &none     &kp MINUS &kp EQUAL &kp LBRC &kp RBRC &none
+   &none &none     &none     &none    &none    &none        &none     &kp PIPE  &kp DQT   &kp SQT  &kp BSLH &none
+                               &trans &kp BSPC &sk LSHFT    &trans &trans &trans
                         >;
                 };
 
