@@ -14,7 +14,10 @@
 #define SYM 2
 #define NAV 3
 #define FUN 4
-#define MED 5
+#define MEDIA 5
+
+#define PRINT LS(LG(N4))
+#define LOCK LC(LG(Q))
 
 
 // &lt {
@@ -62,7 +65,7 @@
    &none  &kp Q        &kp W       &kp E       &kp R       &kp T     &kp Y &kp U       &kp I       &kp O       &kp P           &none
    &none  &hml LSHFT A &hml LCTL S &hml LALT D &hml LGUI F &kp G     &kp H &hmr LGUI J &hmr LALT K &hmr RCTL L &hmr RSHFT SEMI &none
    &none  &kp Z        &kp X       &kp C       &kp V       &kp B     &kp N &kp M       &kp COMMA   &kp DOT     &kp FSLH        &none
-                               &kp ESC &lt NAV TAB &lt NUM SPACE     &lt SYM RET &kp BSPC &kp RET
+                         &lt MEDIA ESC &lt NAV TAB &lt NUM SPACE     &lt SYM RET &kp BSPC &mo FUN
                         >;
                 };
                 number_layer {
@@ -102,14 +105,45 @@
 // |      |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  |      |
 // |      |  `  |     |     |     |     |   |     |Left |Down |  Up | Rght|      |
 // |      |     |     |     |     |     |   |     |Home |PgDn | PgUp| End |      |
-//                    | GUI |     | SPC |   | RET | BKSP| RET |
+//                    | ESC | TAB | SPC |   | RET | BKSP| RET |
                         bindings = <
    &none &kp N1    &kp N2    &kp N3   &kp N4   &kp N5      &kp N6 &kp N7    &kp N8    &kp N9    &kp N0    &none
    &none &kp LSHFT &kp LCTL  &kp LALT &kp LGUI &none       &none  &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &none
    &none &none     &none     &none    &none    &none       &none  &kp HOME  &kp PG_DN &kp PG_UP &kp END   &none
-                                &trans &trans &trans       &trans &trans &trans
+                                &trans &trans &trans       &trans &kp LA(BSPC) &trans
                         >;
                 };
+
+                fun_layer {
+                        label = "Fun";
+// -------------------------------------------------------------------------------
+// |      |  F1 |  F2 |  F3 |  F4 |     |   |     |     |     |     |     |      |
+// |      |  F5 |  F6 |  F7 |  F8 |     |   |     |     |     |     |     |      |
+// |      |  F9 | F10 | F11 | F12 |Print|   |     |     |     |     |     |      |
+//                    |     |     |     |   |     |     |     |
+                        bindings = <
+   &none &kp F1 &kp F2  &kp F3  &kp F4  &none          &none &none &none &none &none &none
+   &none &kp F5 &kp F6  &kp F7  &kp F8  &none          &none &none &none &none &none &none
+   &none &kp F9 &kp F10 &kp F11 &kp F12 &kp PRINT      &none &none &none &none &none &none
+                                &none &none &none      &none &none &none
+                        >;
+                };
+
+                media_layer {
+                        label = "Media";
+// -------------------------------------------------------------------------------
+// |      |     |     |     |     |     |   |     |     |     |     | Lock|      |
+// |      |     |     |     |     |     |   |     | >=  | <<  | >>  |     |      |
+// |      |     |     |     |     |     |   |     | Mute| V+  | V-  |     |      |
+//                    |     |     |     |   |     |     |     |
+                        bindings = <
+   &none &none &none &none &none &none      &none &none      &none        &none        &kp LOCK &none
+   &none &none &none &none &none &none      &none &kp C_PP   &kp C_PREV   &kp C_NEXT   &none    &none
+   &none &none &none &none &none &none      &none &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &none    &none
+                     &none &none &none      &none &none &none
+                        >;
+                };
+
 
         };
 };
