@@ -10,6 +10,7 @@
 #include <dt-bindings/zmk/bt.h>
 
 /* use helper macros to define left and right hand keys */
+#include "../zmk-nodefree-config/helper.h"
 #include "../zmk-nodefree-config/keypos_def/keypos_36keys.h"
 
 #define KEYS_L LT0 LT1 LT2 LT3 LT4 LM0 LM1 LM2 LM3 LM4 LB0 LB1 LB2 LB3 LB4  // left-hand keys
@@ -26,129 +27,95 @@
 #define PRINT LS(LG(N4))
 #define LOCK LC(LG(Q))
 
+// homerow mods
+ZMK_BEHAVIOR(hml, hold_tap,
+    flavor = "balanced";
+    tapping-term-ms = <300>;
+    quick-tap-ms = <125>;
+    global-quick-tap;
+    bindings = <&kp>, <&kp>;
+    hold-trigger-key-positions = <KEYS_R THUMBS>;
+    hold-trigger-on-release;             // delay positional check until key-release
+)
 
-/ {
-      behaviors {
-        hml: homerow_mods_left_hand {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS_LEFT";
-            #binding-cells = <2>;
-            tapping-term-ms = <300>;
-            quick-tap-ms = <125>;
-            global-quick-tap;
-            flavor = "balanced";
-            bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = <KEYS_R THUMBS>;
-            hold-trigger-on-release;             // delay positional check until key-release
-        };
-        hmr:  homerow_mods_right_hand {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS_RIGHT";
-            #binding-cells = <2>;
-            tapping-term-ms = <300>;
-            quick-tap-ms = <125>;
-            global-quick-tap;
-            flavor = "balanced";
-            bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = <KEYS_L THUMBS>;
-            hold-trigger-on-release;             // delay positional check until key-release
-        };
-      };
+ZMK_BEHAVIOR(hmr, hold_tap,
+    flavor = "balanced";
+    tapping-term-ms = <300>;
+    quick-tap-ms = <125>;
+    global-quick-tap;
+    bindings = <&kp>, <&kp>;
+    hold-trigger-key-positions = <KEYS_L THUMBS>;
+    hold-trigger-on-release;             // delay positional check until key-release
+)
 
+ZMK_LAYER(default,
+     // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+          &kp Q         &kp W         &kp E         &kp R         &kp T             &kp Y         &kp U         &kp I         &kp O         &kp P
+     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+          &hml LCTL A   &hml LALT S   &hml LGUI D   &hml LSHFT F  &kp G             &kp H         &hmr RSHFT J  &hmr LGUI K   &hmr LALT L   &hmr RCTL SEMI
+     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+          &kp Z         &kp X         &kp C         &kp V         &kp B             &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH
+     // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+                                      &mo MEDIA     &lt NAV TAB   &lt NUM SPACE     &lt SYM RET   &kp BSPC      &mo FUN
+     //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
+)
 
-      keymap {
-                compatible = "zmk,keymap";
+ZMK_LAYER(num,
+     // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+          &none         &none         &none         &none         &none             &kp SLASH     &kp N7        &kp N8        &kp N9        &kp MINUS
+     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+          &none         &none         &none         &none         &none             &kp ASTRK     &kp N4        &kp N5        &kp N6        &kp PLUS
+     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+          &none         &none         &none         &none         &none             &kp DOT       &kp N1        &kp N2        &kp N3        &kp N0
+     // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+                                      &none         &none         &none             &trans        &trans        &trans
+     //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
+)
 
-                default_layer {
-                        label = "Base";
-// -----------------------------------------------------------------------------------------
-// |      |  Q  |  W  |  E  |  R  |  T    |   |  Y  |  U   |  I  |  O  |  P  |      |
-// |      |  A  |  S  |  D  |  F  |  G    |   |  H  |  J   |  K  |  L  |  ;  |      |
-// |      |  Z  |  X  |  C  |  V  |  B    |   |  N  |  M   |  ,  |  .  |  /  |      |
-//                    | ESC | TAB | SPACE |   | RET | BKSP | RET |
-                        bindings = <
-   &none  &kp Q       &kp W       &kp E       &kp R        &kp T     &kp Y &kp U        &kp I       &kp O       &kp P           &none
-   &none  &hml LCTL A &hml LALT S &hml LGUI D &hml LSHFT F &kp G     &kp H &hmr RSHFT J &hmr LGUI K &hmr LALT L &hmr RCTL SEMI  &none
-   &none  &kp Z       &kp X       &kp C       &kp V        &kp B     &kp N &kp M        &kp COMMA   &kp DOT     &kp FSLH        &none
-                             &mo MEDIA &lt NAV TAB &lt NUM SPACE     &lt SYM RET &kp BSPC &mo FUN
-                        >;
-                };
-                number_layer {
-                        label = "Num";
-// ,-----------------------------------------------------------------------------------.
-// |      |      |      |      |      |     |   |  /  |   7  |   8  |   9  |   -  |      |
-// |      |      |      |      |      |     |   |  *  |   4  |   5  |   6  |   +  |      |
-// |      |      |      |      |      |     |   |     |   1  |   2  |   3  | BKSP |      |
-//                      |      |      |     |   | RET |   0  |   .  |
-                        bindings = <
-   &none &none &none &none &none &none    &kp SLASH &kp N7 &kp N8 &kp N9 &kp MINUS &none
-   &none &none &none &none &none &none    &kp ASTRK &kp N4 &kp N5 &kp N6 &kp PLUS  &none
-   &none &none &none &none &none &none    &kp DOT   &kp N1 &kp N2 &kp N3 &kp N0    &none
-                     &none &none &none    &trans    &trans &trans
+ZMK_LAYER(sym,
+     // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+          &kp EXCL      &kp AT        &kp HASH      &kp DLLR      &kp PRCNT         &kp CARET     &kp AMPS      &kp ASTRK     &kp LPAR      &kp RPAR
+     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+          &kp GRAVE     &kp TILDE     &none         &kp LSHFT     &none             &none         &kp MINUS     &kp EQUAL     &kp LBRC      &kp RBRC
+     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+          &none         &none         &none         &none         &none             &none         &kp PIPE      &kp DQT       &kp SQT       &kp BSLH
+     // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+                                      &none         &kp BSPC      &kp ESC           &trans        &trans        &trans
+     //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
+)
 
-                        >;
-                };
+ZMK_LAYER(nav,
+     // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+          &kp N1        &kp N2        &kp N3        &kp N4        &kp N5            &kp N6        &kp N7        &kp N8        &kp N9        &kp N0
+     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+          &kp LCTL      &kp LALT      &kp LGUI      &kp LSHFT     &none             &none         &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT
+     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+          &none         &none         &none         &none         &none             &none         &kp HOME      &kp PG_DN     &kp PG_UP     &kp END
+     // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+                                      &none         &none         &none             &trans        &kp LA(BSPC)  &none
+     //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
+)
 
-                symbol_layer {
-                        label = "Sym";
-// -------------------------------------------------------------------------------
-// |      |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  |      |
-// |      |  `  |  ~  |     |     |     |   |     |  -  |  =  |  [  |  ]  |      |
-// |      |     |     |     |     |     |   |     |  |  |  "  |  '  |  \  |      |
-//                    |     | TAB | ESC |   | RET | BKSP| RET |
-                        bindings = <
-   &none &kp EXCL  &kp AT    &kp HASH &kp DLLR  &kp PRCNT    &kp CARET &kp AMPS  &kp ASTRK &kp LPAR &kp RPAR &none
-   &none &kp GRAVE &kp TILDE &none    &kp LSHFT &none        &none     &kp MINUS &kp EQUAL &kp LBRC &kp RBRC &none
-   &none &none     &none     &none    &none     &none        &none     &kp PIPE  &kp DQT   &kp SQT  &kp BSLH &none
-                                  &none &kp BSPC &kp ESC    &trans &trans &trans
-                        >;
-                };
+ZMK_LAYER(fun,
+     // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+          &kp F1        &kp F2        &kp F3        &kp F4        &none             &none         &none         &none         &none         &none
+     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+          &kp F5        &kp F6        &kp F7        &kp F8        &none             &none         &none         &none         &none         &none
+     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+          &kp F9        &kp F10       &kp F11       &kp F12       &kp PRINT         &none         &none         &none         &none         &none
+     // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+                                      &none         &none         &none             &none         &none         &none
+     //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
+)
 
-                nav_layer {
-                        label = "Nav";
-// -------------------------------------------------------------------------------
-// |      |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  |      |
-// |      |  `  |     |     |     |     |   |     |Left |Down |  Up | Rght|      |
-// |      |     |     |     |     |     |   |     |Home |PgDn | PgUp| End |      |
-//                    | ESC | TAB | SPC |   | RET | BKSP| RET |
-                        bindings = <
-   &none &kp N1    &kp N2   &kp N3   &kp N4    &kp N5      &kp N6 &kp N7    &kp N8    &kp N9    &kp N0    &none
-   &none &kp LCTL  &kp LALT &kp LGUI &kp LSHFT &none       &none  &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &none
-   &none &none     &none    &none    &none     &none       &none  &kp HOME  &kp PG_DN &kp PG_UP &kp END   &none
-                                    &none &none &none      &trans &kp LA(BSPC) &trans
-                        >;
-                };
-
-                fun_layer {
-                        label = "Fun";
-// -------------------------------------------------------------------------------
-// |      |  F1 |  F2 |  F3 |  F4 |     |   |     |     |     |     |     |      |
-// |      |  F5 |  F6 |  F7 |  F8 |     |    |     |     |     |     |     |      |
-// |      |  F9 | F10 | F11 | F12 |Print|   |     |     |     |     |     |      |
-//                    |     |     |     |   |     |     |     |
-                        bindings = <
-   &none &kp F1 &kp F2  &kp F3  &kp F4  &none          &none &none &none &none &none &none
-   &none &kp F5 &kp F6  &kp F7  &kp F8  &none          &none &none &none &none &none &none
-   &none &kp F9 &kp F10 &kp F11 &kp F12 &kp PRINT      &none &none &none &none &none &none
-                                &none &none &none      &none &none &none
-                        >;
-                };
-
-                media_layer {
-                        label = "Media";
-// -------------------------------------------------------------------------------
-// |      |     |     |     |     |     |   |     |     |     |     | Lock|      |
-// |      |     |     |     |     |     |   |     | >=  | <<  | >>  |     |      |
-// |      |     |     |     |     |     |   |     | Mute| V+  | V-  |     |      |
-//                    |     |     |     |   |     |     |     |
-                        bindings = <
-   &none &bt BT_SEL 0 &bt BT_SEL 1 &none &none &none      &none &none      &none        &none        &kp LOCK &none
-   &none &none        &none        &none &none &none      &none &kp C_PP   &kp C_PREV   &kp C_NEXT   &none    &none
-   &none &bt BT_CLR   &none        &none &none &none      &none &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &none    &none
-                                   &none &none &none      &none &none &none
-                        >;
-                };
-
-
-        };
-}j;
+ZMK_LAYER(media,
+     // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+          &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 3  &none         &none             &none         &none         &none         &none         &kp LOCK
+     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+          &none         &none         &none         &none         &none             &none         &kp C_PP      &kp C_PREV    &kp C_NEXT    &none
+     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+          &bt BT_CLR    &none         &none         &none         &none             &none         &kp C_MUTE    &kp C_VOL_DN  &kp C_VOL_UP  &none
+     // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+                                      &none         &none         &none             &none         &none         &none
+     //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
+)
