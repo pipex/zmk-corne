@@ -103,9 +103,9 @@ ZMK_LAYER(sym,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
   xxx     &kp EXCL      &kp AT        &kp HASH      &kp DLLR      &kp PRCNT         &kp CARET     &kp AMPS      &kp ASTRK     &kp LPAR      &kp RPAR        xxx
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-  xxx     &kp GRAVE     &kp TILDE     xxx           &kp LSHFT     xxx               xxx           &kp MINUS     &kp EQUAL     &kp LBRC      &kp RBRC        xxx
+  xxx     &kp GRAVE     &kp TILDE     xxx           &kp LSHFT     &kp LBRC          &kp RBRC      &kp MINUS     &kp EQUAL     &kp LBKT      &kp RBKT        xxx
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-  xxx     xxx           xxx           xxx           xxx           xxx               xxx           &kp PIPE      &kp DQT       &kp SQT       &kp BSLH        xxx
+  xxx     xxx           xxx           xxx           xxx           &kp UNDER         &kp PLUS      &kp PIPE      &kp DQT       &kp SQT       &kp BSLH        xxx
      // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                                       ___           &kp BSPC      &kp ESC           ___           ___           ___   
      //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
