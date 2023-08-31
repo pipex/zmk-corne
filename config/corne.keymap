@@ -67,19 +67,7 @@ ZMK_BEHAVIOR(ss_cw, tap_dance,
 // Cmd+Tab swapper, requires PR #1366
 ZMK_BEHAVIOR(swapper, tri_state,
     bindings = <&kt LGUI>, <&kp TAB>, <&kt LGUI>;
-    ignored-key-positions = <LM3 LM4 LM5>;
-)
-
-// Cmd+Tab swapper, requires PR #1366
-ZMK_BEHAVIOR(sswapper, tri_state,
-    bindings = <&kt LGUI>, <&kp LS(TAB)>, <&kt LGUI>;
-    ignored-key-positions = <LM3 LM4 LM5>;
-)
-
-// Cmd+Tab swapper, requires PR #1366
-ZMK_BEHAVIOR(qswapper, tri_state,
-    bindings = <&kt LGUI>, <&kp Q>, <&kt LGUI>;
-    ignored-key-positions = <LM3 LM4 LM5>;
+    ignored-key-positions = <LM3 LM5>;
 )
 
 &lt {
@@ -105,7 +93,7 @@ ZMK_LAYER(num,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
   xxx     &kp LOCK      &kp C_PP      &kp C_PREV    &kp C_NEXT    xxx               &kp SLASH     &kp N7        &kp N8        &kp N9        &kp MINUS       xxx
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-  xxx     &kp PTAB      &kp NTAB      &sswapper     &swapper      &qswapper         &kp ASTRK     &kp N4        &kp N5        &kp N6        &kp PLUS        xxx
+  xxx     &kp PTAB      &kp NTAB      &kp LS(TAB)   &swapper      &kp Q             &kp ASTRK     &kp N4        &kp N5        &kp N6        &kp PLUS        xxx
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
   xxx     xxx           &kp C_MUTE    &kp C_VOL_DN  &kp C_VOL_UP  xxx               &kp N0        &kp N1        &kp N2        &kp N3        &kp DOT         xxx
      // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
