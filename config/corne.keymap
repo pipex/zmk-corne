@@ -31,7 +31,9 @@
 #define LOCK LC(LG(Q))
 #define NTAB LC(TAB)
 #define PTAB LS(LC(TAB))
-#define CMD_Q LG(Q)
+#define WLEFT LC(LA(LEFT))
+#define WRIGHT LC(LA(RIGHT))
+#define WFULL LC(LA(RET))
 
 #define xxx &none  
 #define ___ &trans 
@@ -60,21 +62,6 @@ ZMK_BEHAVIOR(hmr, hold_tap,
 ZMK_BEHAVIOR(ss_cw, tap_dance,
     tapping-term-ms = <200>;
     bindings = <&sk LSHFT>, <&caps_word>;
-)
-
-ZMK_BEHAVIOR(n4_wleft, tap_dance,
-    tapping-term-ms = <200>;
-    bindings = <&kp N4>, <&kp LC(LA(LEFT))>;
-)
-
-ZMK_BEHAVIOR(n6_wright, tap_dance,
-    tapping-term-ms = <200>;
-    bindings = <&kp N6>, <&kp LC(LA(RIGHT))>;
-)
-
-ZMK_BEHAVIOR(n5_wfull, tap_dance,
-    tapping-term-ms = <200>;
-    bindings = <&kp N5>, <&kp LC(LA(RET))>;
 )
 
 // Cmd+Tab swapper, requires PR #1366
@@ -106,11 +93,11 @@ ZMK_LAYER(num,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
   xxx     &kp LOCK      &kp C_PP      &kp C_PREV    &kp C_NEXT    xxx               &kp SLASH     &kp N7        &kp N8        &kp N9        &kp MINUS       xxx
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-  xxx     &kp PTAB      &kp NTAB      xxx           &swapper      &kp CMD_Q         &kp ASTRK     &n4_wleft     &n5_wfull     &n6_wright    &kp PLUS        xxx
+  xxx     &kp PTAB      &kp NTAB      &kp LS(TAB )  &swapper      &kp Q             &kp ASTRK     &mt WLEFT N4  &mt WFULl N5  &mt WRIGHT N6 &kp PLUS        xxx
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
   xxx     xxx           &kp C_MUTE    &kp C_VOL_DN  &kp C_VOL_UP  xxx               &kp N0        &kp N1        &kp N2        &kp N3        &kp DOT         xxx
      // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                                      xxx           xxx           xxx               ___           &mt BSPC LGUI &to NUMLOCK   
+                                      xxx           xxx           xxx               ___           &mt LGUI BSPC &to NUMLOCK   
      //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
 )
 
@@ -119,11 +106,11 @@ ZMK_LAYER(numlock,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
   xxx     xxx           xxx           xxx           xxx           xxx               &kp SLASH     &kp N7        &kp N8        &kp N9        &kp MINUS       xxx
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-  xxx     xxx           xxx           xxx           xxx           xxx               &kp ASTRK     &kp N4        &kp N5        &kp N6        &kp PLUS        xxx
+  xxx     xxx           xxx           xxx           xxx           xxx               &kp ASTRK     &mt N4        &kp N5        &kp N6        &kp PLUS        xxx
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
   xxx     xxx           xxx           xxx           xxx           xxx               &kp N0        &kp N1        &kp N2        &kp N3        &kp DOT         xxx
      // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                                      ___           ___           ___               ___           &mt BSPC LGUI &to DEFAULT   
+                                      ___           ___           ___               ___           &mt LGUI BSPC &to DEFAULT   
      //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
 )
 
