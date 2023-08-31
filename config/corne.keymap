@@ -77,11 +77,11 @@ ZMK_BEHAVIOR(n5_wfull, tap_dance,
     bindings = <&kp N4>, <&kp LC(LA(RET))>;
 )
 
-// Cmd+Tab swapper, requires PR #1366
-ZMK_BEHAVIOR(swapper, tri_state,
-    bindings = <&kt LGUI>, <&kp TAB>, <&kt LGUI>;
-    ignored-key-positions = <LM4>;
-)
+// // Cmd+Tab swapper, requires PR #1366
+// ZMK_BEHAVIOR(swapper, tri_state,
+//     bindings = <&kt LGUI>, <&kp TAB>, <&kt LGUI>;
+//     ignored-key-positions = <LM4>;
+// )
 
 &lt {
     flavor = "balanced";
