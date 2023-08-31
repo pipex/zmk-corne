@@ -1,11 +1,12 @@
 manifest:
   remotes:
-    - name: zmkfirmware
-      url-base: https://github.com/zmkfirmware
+    - name: pipex
+      url-base: https://github.com/pipex
   projects:
     - name: zmk
-      remote: zmkfirmware
+      remote: pipex
       revision: main
       import: app/west.yml
   self:
     path: config
+
