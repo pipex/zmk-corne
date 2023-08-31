@@ -68,6 +68,7 @@ ZMK_BEHAVIOR(ss_cw, tap_dance,
 ZMK_BEHAVIOR(swapper, tri_state,
     bindings = <&kt LGUI>, <&kp TAB>, <&kt LGUI>;
     ignored-key-positions = <LM3 LM5>;
+    ignored-layers = <NUM>;
 )
 
 &lt {
