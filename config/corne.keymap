@@ -31,7 +31,7 @@
 #define LOCK LC(LG(Q))
 #define NTAB LC(TAB)
 #define PTAB LS(LC(TAB))
-#define QUIT LG(Q)
+#define CMD_Q LG(Q)
 
 #define xxx &none  
 #define ___ &trans 
