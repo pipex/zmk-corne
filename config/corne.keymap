@@ -34,8 +34,6 @@
 #define WFULL LC(LA(RET))
 #define NTAB LC(TAB)
 #define PTAB LS(LC(TAB))
-#define NAPP LG(TAB)
-#define PAPP LS(LG(TAB))
 #define QUIT LG(Q)
 
 #define xxx &none  
@@ -90,7 +88,7 @@ ZMK_LAYER(num,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
   xxx     &kp LOCK      &kp C_PP      &kp C_PREV    &kp C_NEXT    xxx               &kp SLASH     &kp N7        &kp N8        &kp N9        &kp MINUS       xxx
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-  xxx     &kp PTAB      &kp NTAB      &sk PAPP      &sk NAPP      &kp QUIT          &kp ASTRK     &mt N4 WLEFT  &mt N5 WFULL  &mt N6 WRGHT  &kp PLUS        xxx
+  xxx     &kp PTAB      &kp NTAB      xxx           xxx           &kp CMD_Q        &kp ASTRK     &mt N4 WLEFT  &mt N5 WFULL  &mt N6 WRGHT  &kp PLUS        xxx
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
   xxx     xxx           &kp C_MUTE    &kp C_VOL_DN  &kp C_VOL_UP  xxx               &kp N0        &kp N1        &kp N2        &kp N3        &kp DOT         xxx
      // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
