@@ -69,19 +69,12 @@ ZMK_BEHAVIOR(swapper, tri_state,
     ignored-key-positions = <LM0 LM2>;
 )
 
-&lt {
-    flavor = "balanced";
-    tapping-term-ms = <240>;
-    quick-tap-ms = <125>;
-    global-quick-tap;
-};
-
 // tap: space | shift + tap: dot -> space -> sticky shift | hold: activate layer
 ZMK_BEHAVIOR(lt_spc, hold_tap,
     flavor = "balanced";
     tapping-term-ms = <240>;
-    global-quick-tap;
     quick-tap-ms = <125>;
+    global-quick-tap;
     bindings = <&mo>, <&spc_morph>;
 )
 ZMK_BEHAVIOR(spc_morph, mod_morph,
@@ -93,6 +86,13 @@ ZMK_BEHAVIOR(dot_spc, macro,
     tap-ms = <5>;
     bindings = <&kp DOT &kp SPACE &sk LSHFT>;
 )
+
+&lt {
+    flavor = "balanced";
+    tapping-term-ms = <240>;
+    quick-tap-ms = <125>;
+    global-quick-tap;
+};
 
 ZMK_LAYER(base,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
