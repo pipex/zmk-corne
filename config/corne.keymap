@@ -72,7 +72,7 @@ ZMK_BEHAVIOR(swapper, tri_state,
 ZMK_BEHAVIOR(as, hold_tap, 
     flavor = "tap-preferred";
     bindings = <&kp>, <&kp>;
-    tapping-term-ms = <135>;
+    tapping-term-ms = <200>;
     quick-tap-ms = <0>;
 )
 
