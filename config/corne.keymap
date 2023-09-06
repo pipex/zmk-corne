@@ -68,6 +68,15 @@ ZMK_BEHAVIOR(swapper, tri_state,
     bindings = <&kt LGUI>, <&kp TAB>, <&kt LGUI>;
     ignored-key-positions = <LM0 LM2>;
 )
+
+ZMK_BEHAVIOR(as, hold_tap, 
+    flavor = "tap-preferred";
+    bindings = <&kp>, <&kp>;
+    tapping-term-ms = <135>;
+    quick-tap-ms = <0>;
+)
+
+#define AS(keycode) &as LS(keycode) keycode     // Autoshift Macro
 //
 // // tap: space | shift + tap: dot -> space -> sticky shift | hold: activate layer
 // ZMK_BEHAVIOR(lt_spc, hold_tap,
@@ -134,11 +143,11 @@ ZMK_LAYER(numlock,
 
 ZMK_LAYER(sym,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-  xxx     &kp EXCL      &kp AT        &kp HASH      &kp DLLR      &kp PRCNT         &kp CARET     &kp AMPS      &kp ASTRK     &kp LPAR      &kp RPAR        xxx
+  xxx     &kp EXCL      &kp AT        &kp HASH      &kp DLLR      &kp PRCNT         &kp CARET     &kp AMPS      &kp ASTRK     &mt RPAR LPAR &mt TILDE GRAVE xxx
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-  xxx     &kp LSHFT     &kp LCTL      &kp LALT      &kp LGUI      &kp RBRC          &kp LBRC      &kp MINUS     &kp EQUAL     &mt RBKT LBKT &kp PIPE        xxx
+  xxx     &kp LSHFT     &kp LCTL      &kp LALT      &kp LGUI      &kp RBRC          &mt RBRC LBRC AS(MINUS)     AS(EQUAL)     &mt RBKT LBKT &kp PIPE        xxx
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-  xxx     &kp GRAVE     &kp TILDE     xxx           xxx           xxx               &kp PLUS      &kp UNDER     &kp DQT       &kp SQT       &kp BSLH        xxx
+  xxx     xxx           xxx           xxx           xxx           xxx               xxx           xxx           &kp DQT       &kp SQT       &kp BSLH        xxx
      // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                                       &key_repeat   &kp TAB       &kp ESC           ___           ___           ___   
      //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
