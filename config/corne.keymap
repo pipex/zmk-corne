@@ -100,7 +100,7 @@ ZMK_BEHAVIOR(as, hold_tap,
     flavor = "balanced";
     tapping-term-ms = <240>;
     quick-tap-ms = <125>;
-    global-quick-tap;
+    global-quick-tap-ms = <150>;
 };
 
 ZMK_LAYER(base,
