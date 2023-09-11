@@ -149,7 +149,7 @@ ZMK_LAYER(numlock,
 
 ZMK_LAYER(sym,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-  xxx     &kp EXCL      &kp AT        &kp HASH      &kp DLLR      &kp PRCNT         &kp CARET     &kp AMPS      &kp ASTRK     &mt RPAR LPAR AS(GRAVE)       xxx
+  xxx     &kp EXCL      &kp AT        &kp HASH      &kp DLLR      &kp PRCNT         &kp CARET     &kp AMPS      &kp ASTRK     &as RPAR LPAR AS(GRAVE)       xxx
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
   xxx     &kp LSHFT     &kp LCTL      &kp LALT      &kp LGUI      &kp RBRC          &as RBRC LBRC AS(MINUS)     AS(EQUAL)     &as RBKT LBKT &kp PIPE        xxx
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
