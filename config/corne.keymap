@@ -25,7 +25,6 @@
 #define SYM 3
 #define NAV 4
 #define FUN 5
-#define MEDIA 6
 
 #define PRINT LS(LG(N4))
 #define LOCK LC(LG(Q))
@@ -98,17 +97,10 @@ ZMK_BEHAVIOR(dot_spc, macro,
     bindings = <&kp DOT &kp SPACE &sk LSHFT>;
 )
 
-// layer_tap
-ZMK_BEHAVIOR(llt, hold_tap,
-    flavor = "balanced";
-    tapping-term-ms = <275>;
-    quick-tap-ms = <125>;
-    global-quick-tap-ms = <150>;
-    bindings = <&mo>, <&kp>;
-    hold-trigger-key-positions = <KEYS_R>;
-    hold-trigger-on-release;             // delay positional check until key-release
-)
-
+&sk {  // sticky-key config
+    release-after-ms = <900>;  // release after 0.6s
+    quick-release;             // no double capitalization when rolling keys
+};
 
 &lt {
     flavor = "hold-preferred";
@@ -125,7 +117,7 @@ ZMK_LAYER(base,
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
   xxx     &kp Z         &kp X         &kp C         &kp V         &kp B             &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH        xxx
      // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                                      &mo NAV       &llt NUM SPACE &ss_cw           &lt SYM RET   &kp BSPC      &mo FUN
+                                      &mo NAV       &lt_spc NUM   &ss_cw           &lt SYM RET   &kp BSPC      &mo FUN
      //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
 )
 
