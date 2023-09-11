@@ -97,12 +97,12 @@ ZMK_BEHAVIOR(as, hold_tap,
 // 
 
 // layer_tap
-ZMK_BEHAVIOR(num, hold_tap,
+ZMK_BEHAVIOR(llt, hold_tap,
     flavor = "balanced";
     tapping-term-ms = <300>;
     quick-tap-ms = <125>;
     global-quick-tap-ms = <150>;
-    bindings = <&mo NUM>, <&kp>;
+    bindings = <&mo>, <&kp>;
     hold-trigger-key-positions = <KEYS_R THUMBS>;
     hold-trigger-on-release;             // delay positional check until key-release
 )
@@ -123,7 +123,7 @@ ZMK_LAYER(base,
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
   xxx     &kp Z         &kp X         &kp C         &kp V         &kp B             &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH        xxx
      // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                                      &mo NAV       &num SPACE    &ss_cw            &lt SYM RET   &kp BSPC      &mo FUN
+                                      &mo NAV       &llt NUM SPACE &ss_cw           &lt SYM RET   &kp BSPC      &mo FUN
      //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
 )
 
