@@ -99,11 +99,11 @@ ZMK_BEHAVIOR(as, hold_tap,
 // layer_tap
 ZMK_BEHAVIOR(llt, hold_tap,
     flavor = "balanced";
-    tapping-term-ms = <300>;
+    tapping-term-ms = <275>;
     quick-tap-ms = <125>;
     global-quick-tap-ms = <150>;
     bindings = <&mo>, <&kp>;
-    hold-trigger-key-positions = <KEYS_R THUMBS>;
+    hold-trigger-key-positions = <KEYS_R>;
     hold-trigger-on-release;             // delay positional check until key-release
 )
 
