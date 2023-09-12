@@ -80,7 +80,7 @@ ZMK_BEHAVIOR(as, hold_tap,
 // tap: space | shift + tap: dot -> space -> sticky shift | hold: activate layer
 ZMK_BEHAVIOR(lt_spc, hold_tap,
     flavor = "balanced";
-    tapping-term-ms = <240>;
+    tapping-term-ms = <275>;
     quick-tap-ms = <125>;
     global-quick-tap-ms = <125>;
     bindings = <&mo>, <&spc_morph>;
