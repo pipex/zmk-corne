@@ -82,7 +82,7 @@ ZMK_BEHAVIOR(lt_spc, hold_tap,
     flavor = "balanced";
     tapping-term-ms = <275>;
     quick-tap-ms = <125>;
-    global-quick-tap-ms = <125>;
+    global-quick-tap-ms = <100>;
     bindings = <&mo>, <&spc_morph>;
     hold-trigger-key-positions = <KEYS_R THUMBS>;
     hold-trigger-on-release;
@@ -104,9 +104,8 @@ ZMK_BEHAVIOR(dot_spc, macro,
 
 &lt {
     flavor = "hold-preferred";
-    tapping-term-ms = <240>;
+    tapping-term-ms = <200>;
     quick-tap-ms = <125>;
-    global-quick-tap-ms = <150>;
 };
 
 ZMK_LAYER(base,
