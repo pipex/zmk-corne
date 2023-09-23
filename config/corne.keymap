@@ -36,6 +36,8 @@
 #define xxx &none  
 #define ___ &trans 
 
+#define AS(keycode) &as LS(keycode) keycode     // Autoshift Macro
+
 // homerow mods
 ZMK_BEHAVIOR(hml, hold_tap,
     flavor = "balanced";
@@ -68,15 +70,6 @@ ZMK_BEHAVIOR(swapper, tri_state,
     ignored-key-positions = <LM0 LM2>;
 )
 
-ZMK_BEHAVIOR(as, hold_tap, 
-    flavor = "tap-preferred";
-    bindings = <&kp>, <&kp>;
-    tapping-term-ms = <175>;
-    quick-tap-ms = <0>;
-)
-
-#define AS(keycode) &as LS(keycode) keycode     // Autoshift Macro
-
 // tap: space | shift + tap: dot -> space -> sticky shift | hold: activate layer
 ZMK_BEHAVIOR(lt_spc, hold_tap,
     flavor = "balanced";
@@ -95,6 +88,13 @@ ZMK_BEHAVIOR(dot_spc, macro,
     wait-ms = <0>;
     tap-ms = <5>;
     bindings = <&kp DOT &kp SPACE &sk LSHFT>;
+)
+
+ZMK_BEHAVIOR(as, hold_tap,
+    flavor = "tap-preferred";
+    bindings = <&kp>, <&kp>;
+    tapping-term-ms = <175>;
+    quick-tap-ms = <0>;
 )
 
 &sk {  // sticky-key config
