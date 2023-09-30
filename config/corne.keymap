@@ -72,11 +72,11 @@ ZMK_BEHAVIOR(swapper, tri_state,
 
 // tap: space | shift + tap: dot -> space -> sticky shift | hold: activate layer
 ZMK_BEHAVIOR(lt_spc, hold_tap,
-    flavor = "hold-preferred";
+    flavor = "balanced";
     tapping-term-ms = <275>;
     quick-tap-ms = <125>;
     require-prior-idle-ms = <100>;
-    bindings = <&mo>, <&spc_morph>;
+    bindings = <&kp>, <&kp SPACE>;
     hold-trigger-key-positions = <KEYS_R THUMBS>;
     hold-trigger-on-release;
 )
