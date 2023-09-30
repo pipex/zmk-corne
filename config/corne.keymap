@@ -71,12 +71,12 @@ ZMK_BEHAVIOR(swapper, tri_state,
 )
 
 // tap: space | shift + tap: dot -> space -> sticky shift | hold: activate layer
-ZMK_BEHAVIOR(lt_spc, hold_tap,
+ZMK_BEHAVIOR(spc, hold_tap,
     flavor = "balanced";
     tapping-term-ms = <275>;
     quick-tap-ms = <125>;
     require-prior-idle-ms = <100>;
-    bindings = <&kp>, <&kp>;
+    bindings = <&mo>, <&kp>;
     hold-trigger-key-positions = <KEYS_R THUMBS>;
     hold-trigger-on-release;
 )
@@ -116,7 +116,7 @@ ZMK_LAYER(base,
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
   xxx     &kp Z         &kp X         &kp C         &kp V         &kp B             &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH        xxx
      // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                                      &mo NAV       &hml NUM SPACE &ss_cw           &lt SYM RET   &kp BSPC      &mo FUN
+                                      &mo NAV       &spc NUM SPACE &ss_cw           &lt SYM RET   &kp BSPC      &mo FUN
      //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
 )
 
