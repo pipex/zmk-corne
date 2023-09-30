@@ -72,7 +72,7 @@ ZMK_BEHAVIOR(swapper, tri_state,
 
 // tap: space | shift + tap: dot -> space -> sticky shift | hold: activate layer
 ZMK_BEHAVIOR(lt_spc, hold_tap,
-    flavor = "balanced";
+    flavor = "hold-preferred";
     tapping-term-ms = <275>;
     quick-tap-ms = <125>;
     require-prior-idle-ms = <100>;
@@ -126,7 +126,7 @@ ZMK_LAYER(num,
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
   xxx     &kp TAB_L     &kp TAB_R     &kp LS(TAB)   &swapper      &kp Q             &kp ASTRK     &kp KP_N4     &kp KP_N5     &kp KP_N6     &kp PLUS        xxx
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-  xxx     &mo NAV       &kp C_MUTE    &kp C_VOL_DN  &kp C_VOL_UP  xxx               &kp DOT     &kp KP_N1     &kp KP_N2     &kp KP_N3       &kp KP_N0       xxx
+  xxx     &mo NAV       &kp C_MUTE    &kp C_VOL_DN  &kp C_VOL_UP  xxx               &kp DOT       &kp KP_N1     &kp KP_N2     &kp KP_N3     &kp KP_N0       xxx
      // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                                       xxx           xxx           xxx               &mt LGUI RET  ___           &to NUMLOCK   
      //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
