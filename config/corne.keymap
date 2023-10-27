@@ -82,6 +82,18 @@ ZMK_BEHAVIOR(hl, hold_tap,
     hold-trigger-on-release;
 )
 
+// hold-right. Allow same hand combinations but prefer
+// the default key behaviour
+ZMK_BEHAVIOR(hr, hold_tap,
+    flavor = "balanced";
+    tapping-term-ms = <275>;
+    quick-tap-ms = <125>;
+    require-prior-idle-ms = <100>;
+    bindings = <&mo>, <&kp>;
+    hold-trigger-key-positions = <KEYS_L THUMBS>;
+    hold-trigger-on-release;
+)
+
 ZMK_BEHAVIOR(as, hold_tap,
     flavor = "tap-preferred";
     bindings = <&kp>, <&kp>;
@@ -111,7 +123,7 @@ ZMK_LAYER(base,
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
   xxx     &kp Z         &kp X         &kp C         &kp V         &kp B             &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH        xxx
      // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                                      &key_repeat   &hl NUM SPACE &ss_cw            &lt SYM RET   &lt NAV BSPC  &mo FUN
+                                      &key_repeat   &hl NUM SPACE &ss_cw            &lt SYM RET   &hr NAV BSPC  &mo FUN
      //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
 )
 
