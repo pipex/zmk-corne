@@ -70,8 +70,9 @@ ZMK_BEHAVIOR(swapper, tri_state,
     ignored-key-positions = <LM0 LM2>;
 )
 
-// tap: space | shift + tap: dot -> space -> sticky shift | hold: activate layer
-ZMK_BEHAVIOR(spc, hold_tap,
+// hold-left. Allow same hand combinations but prefer
+// the default key behaviour
+ZMK_BEHAVIOR(hl, hold_tap,
     flavor = "balanced";
     tapping-term-ms = <275>;
     quick-tap-ms = <125>;
@@ -107,7 +108,7 @@ ZMK_LAYER(base,
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
   xxx     &kp Z         &kp X         &kp C         &kp V         &kp B             &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH        xxx
      // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                                      &mo NAV       &spc NUM SPACE &ss_cw           &lt SYM RET   &lt NAV BSPC  &mo FUN
+                                      &key_repeat   &hl NUM SPACE &ss_cw            &lt SYM RET   &lt NAV BSPC  &mo FUN
      //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
 )
 
@@ -145,7 +146,7 @@ ZMK_LAYER(sym,
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
   xxx     xxx           xxx           xxx           xxx           xxx               xxx           xxx           &kp DQT       &kp SQT       &kp BSLH        xxx
      // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                                      &key_repeat   &kp TAB       &kp ESC           ___           ___           ___   
+                                      ___           &kp TAB       &kp ESC           ___           ___           ___   
      //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
 )
 
@@ -157,7 +158,7 @@ ZMK_LAYER(nav,
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
   xxx     xxx           xxx           xxx           xxx           xxx               xxx           &kp HOME      &kp PG_DN     &kp PG_UP     &kp END         xxx
      // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                                      xxx           xxx           xxx               &kp LG(LALT)  &kp LG(LCTL)  &kp LC(LALT) 
+                                      xxx           xxx           xxx               xxx           xxx           xxx         
      //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
 )
 
