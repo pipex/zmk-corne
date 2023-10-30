@@ -38,7 +38,7 @@
 
 #define AS(keycode) &as LS(keycode) keycode     // Autoshift Macro
 
-#define QUICK_TAP_MS 75
+#define QUICK_TAP_MS 125
 
 // homerow mods
 ZMK_BEHAVIOR(hml, hold_tap,
