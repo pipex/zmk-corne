@@ -5,7 +5,7 @@ manifest:
   projects:
     - name: zmk
       remote: pipex
-      revision: main
+      revision: a7062f761f0c5fce9b86916da74000aa4c704c02
       import: app/west.yml
   self:
     path: config
