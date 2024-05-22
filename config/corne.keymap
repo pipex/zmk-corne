@@ -39,13 +39,15 @@
 #define AS(keycode) &as LS(keycode) keycode     // Autoshift Macro
 
 #define QUICK_TAP_MS 125
+#define TAPPING_TERM_MS 275
+#define PRIOR_IDLE_MS 150
 
 // homerow mods
 ZMK_BEHAVIOR(hml, hold_tap,
     flavor = "balanced";
-    tapping-term-ms = <250>;
+    tapping-term-ms = <TAPPING_TERM_MS>;
     quick-tap-ms = <QUICK_TAP_MS>;
-    require-prior-idle-ms = <200>;
+    require-prior-idle-ms = <PRIOR_IDLE_MS>;
     bindings = <&kp>, <&kp>;
     hold-trigger-key-positions = <KEYS_R THUMBS>;
     hold-trigger-on-release;             // delay positional check until key-release
@@ -53,9 +55,9 @@ ZMK_BEHAVIOR(hml, hold_tap,
 
 ZMK_BEHAVIOR(hmr, hold_tap,
     flavor = "balanced";
-    tapping-term-ms = <250>;
+    tapping-term-ms = <TAPPING_TERM_MS>;
     quick-tap-ms = <QUICK_TAP_MS>;
-    require-prior-idle-ms = <200>;
+    require-prior-idle-ms = <PRIOR_IDLE_MS>;
     bindings = <&kp>, <&kp>;
     hold-trigger-key-positions = <KEYS_L THUMBS>;
     hold-trigger-on-release;             // delay positional check until key-release
@@ -72,8 +74,7 @@ ZMK_BEHAVIOR(swapper, tri_state,
     ignored-key-positions = <LM0 LM2>;
 )
 
-// hold-left. Allow same hand combinations but prefer
-// the default key behaviour
+// Left-hand hold, used for Num layer
 ZMK_BEHAVIOR(hl, hold_tap,
     flavor = "balanced";
     tapping-term-ms = <275>;
@@ -84,8 +85,7 @@ ZMK_BEHAVIOR(hl, hold_tap,
     hold-trigger-on-release;
 )
 
-// hold-right. Allow same hand combinations but prefer
-// the default key behaviour
+// Right hand hold, used for Nav layer
 ZMK_BEHAVIOR(hr, hold_tap,
     flavor = "tap-preferred";
     tapping-term-ms = <175>;
@@ -105,6 +105,7 @@ ZMK_BEHAVIOR(as, hold_tap,
     quick-release;             // no double capitalization when rolling keys
 };
 
+// Long term hold, used for Sym layer
 &lt {
     flavor = "hold-preferred";
     tapping-term-ms = <200>;
