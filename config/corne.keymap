@@ -108,7 +108,7 @@ ZMK_BEHAVIOR(as, hold_tap,
 // Long term hold, used for Sym layer
 &lt {
     flavor = "hold-preferred";
-    tapping-term-ms = <200>;
+    tapping-term-ms = <250>;
     quick-tap-ms = <QUICK_TAP_MS>;
 };
 
