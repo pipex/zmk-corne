@@ -40,7 +40,7 @@
 
 #define QUICK_TAP_MS 125
 #define TAPPING_TERM_MS 275
-#define PRIOR_IDLE_MS 150
+#define PRIOR_IDLE_MS 125
 
 // homerow mods
 ZMK_BEHAVIOR(hml, hold_tap,
