@@ -1,12 +1,16 @@
 manifest:
   remotes:
-    - name: pipex
-      url-base: https://github.com/pipex
+    - name: zmkfirmware
+      url-base: https://github.com/zmkfirmware
+    - name: smart-toggle
+      url-base: https://github.com/caksoylar
   projects:
     - name: zmk
-      remote: pipex
-      revision: 8854da339d082494c98085f3c0e8f869210e538d
+      remote: zmkfirmware
+      revision: main
       import: app/west.yml
+    - name: zmk-smart-toggle
+      remote: smart-toggle
+      revision: fd05108600a66a88b9e03263cc132721d89b9ffb
   self:
     path: config
-

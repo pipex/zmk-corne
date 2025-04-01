@@ -68,8 +68,8 @@ ZMK_BEHAVIOR(ss_cw, tap_dance,
     bindings = <&sk LSHFT>, <&caps_word>;
 )
 
-// Cmd+Tab swapper, requires PR #1366
-ZMK_BEHAVIOR(swapper, tri_state,
+// Cmd+Tab swapper
+ZMK_BEHAVIOR(swapper, smart_toggle,
     bindings = <&kt LGUI>, <&kp TAB>, <&kt LGUI>;
     ignored-key-positions = <LM0 LM2>;
 )
