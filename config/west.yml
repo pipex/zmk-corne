@@ -2,15 +2,15 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: smart-toggle
-      url-base: https://github.com/caksoylar
+    - name: dhruvinsh
+      url-base: https://github.com/dhruvinsh
   projects:
     - name: zmk
       remote: zmkfirmware
       revision: 241ff39556b3685c9344c4c22fd9a655af8eb3ba # 0.2.1
       import: app/west.yml
-    - name: zmk-smart-toggle
-      remote: smart-toggle
-      revision: fd05108600a66a88b9e03263cc132721d89b9ffb
+    - name: zmk-tri-state
+      remote: dhruvinsh
+      revision: ebbc1f0ccdb51669650bb0ac3e34920d09e62400
   self:
     path: config

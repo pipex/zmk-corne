@@ -69,7 +69,7 @@ ZMK_BEHAVIOR(ss_cw, tap_dance,
 )
 
 // Cmd+Tab swapper
-ZMK_BEHAVIOR(swapper, smart_toggle,
+ZMK_BEHAVIOR(swapper, tri_state,
     bindings = <&kt LGUI>, <&kp TAB>, <&kt LGUI>;
     ignored-key-positions = <LM0 LM2>;
 )
